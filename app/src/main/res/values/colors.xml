@@ -3,7 +3,9 @@
     <color name="black">@android:color/black</color>
     <color name="white">@android:color/white</color>
     <color name="blue">@android:color/holo_blue_dark</color>
-
+    <color name="primary_material_dark_1">#009688</color>
+    <color name="primary_dark_material_dark">#00796b</color>
+    <color name="accent_material_dark">#c51162</color>
 
 
 </resources>
