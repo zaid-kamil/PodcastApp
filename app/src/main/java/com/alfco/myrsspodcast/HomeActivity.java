@@ -5,7 +5,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 
@@ -28,6 +31,9 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
+
+import static com.alfco.myrsspodcast.adapters.CategoryAdapter.CAT_NAME;
+import static com.alfco.myrsspodcast.adapters.CategoryAdapter.CAT_POS;
 
 /**
  * Created by angel on 6/6/15.
@@ -65,8 +71,9 @@ public class HomeActivity extends Activity implements NetworkActions,TempFragmen
 
     @ViewById
     View loader;
-
-
+    private String category_name;
+    private String url;
+    private SharedPreferences pod_pref;
 
 
     /**********************************************************************************************
@@ -78,6 +85,7 @@ public class HomeActivity extends Activity implements NetworkActions,TempFragmen
     @Override
     protected void onStart() {
         super.onStart();
+        setupPodcast();
         spiceManager.start(this);
     }
 
@@ -382,5 +390,18 @@ public class HomeActivity extends Activity implements NetworkActions,TempFragmen
         showLoading(show);
     }
 
+    private void setupPodcast() {
+        //setSupportActionBar(toolbar);
+        if (getIntent() != null) {
+            Intent intent = getIntent();
+            category_name = getIntent().getStringExtra(CAT_NAME);
+            int pos = getIntent().getIntExtra(CAT_POS, 0);
 
+            url = getResources().getStringArray(R.array.podcast)[pos];
+            //getSupportActionBar().setSubtitle(category_name);
+            pod_pref = getSharedPreferences("pod_pref", Context.MODE_PRIVATE);
+            pod_pref.edit().putString("selected_url", url).apply();
+
+        }
+    }
 }

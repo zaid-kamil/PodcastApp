@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alfco.myrsspodcast" >
+    package="com.alfco.myrsspodcast">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppThemeMaterial" >
+        android:theme="@style/AppThemeMaterial">
         <activity
             android:name=".SplashActivity_"
             android:label="@string/app_name"
@@ -21,19 +20,43 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-
         <activity
             android:name=".HomeActivity_"
-            android:label="@string/app_name" >
-
-        </activity>
+            android:label="@string/app_name" />
 
         <service
             android:name=".restclient.service.MyRssPodcastService"
             android:exported="false" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppThemeMaterial" />
+        <activity
+            android:name=".CategoryActivity"
+            android:label="@string/title_activity_category"
+            android:theme="@style/AppThemeMaterial"></activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FeedbackActivity"
+            android:label="@string/title_activity_feedback"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AccountActivity"
+            android:label="@string/title_activity_account"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PrivacyActivity"
+            android:label="@string/title_activity_privacy"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

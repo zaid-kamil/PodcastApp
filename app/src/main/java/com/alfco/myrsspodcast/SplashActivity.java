@@ -1,11 +1,14 @@
 package com.alfco.myrsspodcast;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 
 import com.alfco.myrsspodcast.tools.Constants;
@@ -26,28 +29,13 @@ public class SplashActivity extends Activity {
 
     @AfterViews
     void init(){
-        Picasso.with(SplashActivity.this).load(R.drawable.background_splash).fit().into(ivLogo);
-
-        TimerTask task = new TimerTask() {
-
+        ivLogo.animate().rotationYBy(360 * 3).translationY(100).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(2000).setStartDelay(500).setListener(new AnimatorListenerAdapter() {
             @Override
-            public void run() {
-
-                Intent intent;
-                //FIXME override back button to avoid back when loading session
-
-                intent = new Intent(SplashActivity.this, HomeActivity_.class);
-
-
-
-                startActivity(intent);
-                finish();
+            public void onAnimationEnd(Animator animation) {
+                Intent i = new Intent(getBaseContext(), LoginActivity.class);
+                startActivity(i);
             }
-
-        };
-
-        Timer timer = new Timer();
-        timer.schedule(task,Constants.pause);
+        });
 
     }
 }

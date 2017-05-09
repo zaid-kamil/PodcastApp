@@ -1,6 +1,8 @@
 package com.alfco.myrsspodcast.fragments;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Button;
@@ -93,11 +95,8 @@ public class FragmentHome extends BaseFragment implements RequestListener<byte[]
     Button btLoadPodcast;
     @ViewById
     ImageView ivPodcastLogo;
-
-
-
-
-
+    private SharedPreferences pod_pref;
+    private String selected_url;
 
 
     /**********************************************************************************************
@@ -181,6 +180,8 @@ public class FragmentHome extends BaseFragment implements RequestListener<byte[]
      **********************************************************************************************/
 
     private void initLogicalComponenets(){
+        pod_pref = getActivity().getSharedPreferences("pod_pref", Context.MODE_PRIVATE);
+        selected_url = pod_pref.getString("selected_url", "https://kindafamouspod.podbean.com/feed/");
         etUrl.setText(Constants.url);
         player=new MediaPlayer();
     }

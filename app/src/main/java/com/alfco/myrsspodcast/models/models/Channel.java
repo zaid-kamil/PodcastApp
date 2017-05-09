@@ -7,20 +7,18 @@ import org.simpleframework.xml.Root;
 
 import java.util.ArrayList;
 
-/**
- * Created by angel on 6/6/15.
- */
+
 @Root(name="channel",strict = false)
 public class Channel {
 
     @Element
     private String title;
-    @Element
+    @Element(required = false)
     private String link;
     @Element
     private String description;
     @Namespace
-    @Element
+    @Element(required = false)
     private String subtitle;
     @Element
     @Namespace

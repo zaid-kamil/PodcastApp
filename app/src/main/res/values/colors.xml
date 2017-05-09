@@ -7,5 +7,8 @@
     <color name="primary_dark_material_dark">#00796b</color>
     <color name="accent_material_dark">#c51162</color>
 
+    <color name="colorPrimary">#b680d1</color>
+    <color name="colorPrimaryDark">#3f1649</color>
+    <color name="colorAccent">#922dc7</color>
 
 </resources>
