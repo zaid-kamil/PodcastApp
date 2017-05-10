@@ -40,11 +40,19 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
-            android:theme="@style/AppTheme.NoActionBar" />
+
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
             android:name=".FeedbackActivity"
             android:label="@string/title_activity_feedback"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".CategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CategoryActivity" />
+        </activity>
         <activity
             android:name=".SettingActivity"
             android:label="@string/title_activity_setting"
