@@ -182,7 +182,7 @@ public class FragmentHome extends BaseFragment implements RequestListener<byte[]
     private void initLogicalComponenets(){
         pod_pref = getActivity().getSharedPreferences("pod_pref", Context.MODE_PRIVATE);
         selected_url = pod_pref.getString("selected_url", "https://kindafamouspod.podbean.com/feed/");
-        etUrl.setText(selected_url);
+        etUrl.setText(Constants.url);
         player=new MediaPlayer();
     }
 
